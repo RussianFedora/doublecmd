@@ -3,7 +3,7 @@
 Name:		doublecmd
 Summary:	Twin-panel (commander-style) file manager
 Version:	0.5.5
-Release:	svn%{svn}.1%{?dist}.R
+Release:	svn%{svn}.2%{?dist}.R
 URL:		http://doublecmd.sourceforge.net
 Source0:	doublecmd-svn%{svn}.tar.xz
 License:	GPL
@@ -25,14 +25,23 @@ Obsoletes: doublecmd < 0.4.6 doublecmd-qt
 Double Commander is a cross platform open source file manager with two panels side by side.
 It is inspired by Total Commander and features some new ideas. GTK2
 
+%package        doc
+Summary:        Double Commander's help files
+Requires:  doublecmd-gtk
+
+%description    doc
+Double Commander's help files
+
 %prep
 %setup -q -n doublecmd
+chmod +x install/linux/install-help.sh
 
 %build
 ./build.sh all gtk2
 
 %install
 install/linux/install.sh --install-prefix=%{buildroot}
+install/linux/install-help.sh --install-prefix=%{buildroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,15 +57,22 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_datadir}/doublecmd/pixmaps/.svn
 %exclude %{_datadir}/doublecmd/pixmaps/dctheme/.svn
 %exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/actions/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/apps/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/devices/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/emblems/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/mimetypes/.svn
-%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/places/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/*/.svn
+%exclude %{_datadir}/doublecmd/doc/
 %{_datadir}/applications/doublecmd.desktop
 
+%files doc
+%defattr(-,root,root)
+%{_datadir}/doublecmd/doc
+%exclude %{_datadir}/doublecmd/doc/*/.svn
+%exclude %{_datadir}/doublecmd/doc/*/dev-help/.svn
+%exclude %{_datadir}/doublecmd/doc/*/images/.svn
+%exclude %{_datadir}/doublecmd/doc/*/images/imgDC/.svn
+
 %changelog
+* Mon Aug 08 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3789.2.R
+- Added documentation package
+
 * Mon Aug 08 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3789.1.R
 - Removed .svn files
 - Update svn to 3789
