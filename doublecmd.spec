@@ -1,11 +1,11 @@
-%global svn     3765
+%global svn     3789
 
 Name:		doublecmd
 Summary:	Twin-panel (commander-style) file manager
 Version:	0.5.5
-Release:	svn%{svn}.2%{?dist}.R
+Release:	svn%{svn}.1%{?dist}.R
 URL:		http://doublecmd.sourceforge.net
-Source0:	doublecmd-svn3765.tar.xz
+Source0:	doublecmd-svn%{svn}.tar.xz
 License:	GPL
 Group:		Applications/File
 BuildRequires:	fpc >= 2.4.0 fpc-src glib2-devel gtk2-devel lazarus >= 0.9.29
@@ -42,15 +42,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/doublecmd
 %{_bindir}/doublecmd
 %{_datadir}/doublecmd
+%exclude %{_datadir}/doublecmd/language/.svn
+%exclude %{_datadir}/doublecmd/language/lcl/.svn
 %{_datadir}/pixmaps/doublecmd.png
+%exclude %{_datadir}/doublecmd/pixmaps/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/actions/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/apps/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/devices/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/emblems/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/mimetypes/.svn
+%exclude %{_datadir}/doublecmd/pixmaps/dctheme/*x*/places/.svn
 %{_datadir}/applications/doublecmd.desktop
 
 %changelog
-* Thu Jul  28 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-avn3765.2.R
+* Mon Aug 08 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3789.1.R
+- Removed .svn files
+- Update svn to 3789
+
+* Thu Jul  28 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3765.2.R
 - Split packages
 - Clean spec
 
-* Thu Jul  28 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-avn3765.1.R
+* Thu Jul  28 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3765.1.R
 - Initial build for Fedora
 
 * Fri Jun 11 2010 - Alexander Koblov <Alexx2000@mail.ru>
