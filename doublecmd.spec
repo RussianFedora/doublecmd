@@ -1,11 +1,12 @@
-%global svn     3860
+%define svn     3860
+%define realver 0.5.0
 
 Name:           doublecmd
 Summary:        Twin-panel (commander-style) file manager
-Version:        0.5.0
-Release:        svn%{svn}.1%{?dist}.R
+Version:        %{realver}.svn%{svn}
+Release:        1%{?dist}.R
 URL:            http://doublecmd.sourceforge.net
-Source0:        %{name}-%{version}-svn%{svn}.tar.xz
+Source0:        %{name}-%{version}.tar.bz2
 License:        GPL
 Group:          Applications/File
 BuildRequires:	fpc >= 2.4.0 fpc-src glib2-devel gtk2-devel lazarus >= 0.9.29
@@ -32,7 +33,7 @@ Summary:        Double Commander's help files
 Double Commander's help files
 
 %prep
-%setup -q -n %{name}
+%setup -q
 chmod +x install/linux/install-help.sh
 
 %build
