@@ -10,7 +10,7 @@ License:        GPL
 Group:          Applications/File
 BuildRequires:	fpc >= 2.4.0 fpc-src glib2-devel gtk2-devel lazarus >= 0.9.29
 BuildRequires:  gdk-pixbuf-devel ncurses-devel dbus-devel bzip2-devel xorg-x11-proto-devel xorg-x11-xtrans-devel
-BuildRequires:  util-linux svn
+BuildRequires:  util-linux
 
 %description
 Double Commander is a cross platform open source file manager with two panels side by side.
