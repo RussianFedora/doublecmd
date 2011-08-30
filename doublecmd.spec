@@ -1,11 +1,11 @@
-%global svn     3789
+%global svn     3860
 
 Name:           doublecmd
 Summary:        Twin-panel (commander-style) file manager
-Version:        0.5.5
-Release:        svn%{svn}.2%{?dist}.R
+Version:        0.5.0
+Release:        svn%{svn}.1%{?dist}.R
 URL:            http://doublecmd.sourceforge.net
-Source0:        %{name}-svn%{svn}.tar.xz
+Source0:        %{name}-%{version}-svn%{svn}.tar.xz
 License:        GPL
 Group:          Applications/File
 BuildRequires:	fpc >= 2.4.0 fpc-src glib2-devel gtk2-devel lazarus >= 0.9.29
@@ -50,25 +50,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/%{name}
-%exclude %{_datadir}/%{name}/language/.svn
-%exclude %{_datadir}/%{name}/language/lcl/.svn
 %{_datadir}/pixmaps/%{name}.png
-%exclude %{_datadir}/%{name}/pixmaps/.svn
-%exclude %{_datadir}/%{name}/pixmaps/dctheme/.svn
-%exclude %{_datadir}/%{name}/pixmaps/dctheme/*x*/.svn
-%exclude %{_datadir}/%{name}/pixmaps/dctheme/*x*/*/.svn
 %exclude %{_datadir}/%{name}/doc/
 %{_datadir}/applications/%{name}.desktop
 
 %files doc
 %defattr(-,root,root)
 %{_datadir}/%{name}/doc
-%exclude %{_datadir}/%{name}/doc/*/.svn
-%exclude %{_datadir}/%{name}/doc/*/dev-help/.svn
-%exclude %{_datadir}/%{name}/doc/*/images/.svn
-%exclude %{_datadir}/%{name}/doc/*/images/imgDC/.svn
 
 %changelog
+* Tue Aug 30 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.0-svn3860.1.R
+- Apdate to new revision
+
 * Mon Aug 08 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3789.2.R
 - Added documentation package
 
