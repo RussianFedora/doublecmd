@@ -1,6 +1,6 @@
 diff -uNdr doublecmd.original/components/KASToolBar/kascomp.lpk doublecmd/components/KASToolBar/kascomp.lpk
---- doublecmd.original/components/KASToolBar/kascomp.lpk	2011-07-29 22:50:06.000000000 +0400
-+++ doublecmd/components/KASToolBar/kascomp.lpk	2011-07-30 02:29:58.766177386 +0400
+--- doublecmd.original/components/KASToolBar/kascomp.lpk	2011-08-08 10:29:52.369550368 +0400
++++ doublecmd/components/KASToolBar/kascomp.lpk	2011-08-24 11:20:27.540965249 +0400
 @@ -6,7 +6,7 @@
      <CompilerOptions>
        <Version Value="9"/>
@@ -11,11 +11,11 @@ diff -uNdr doublecmd.original/components/KASToolBar/kascomp.lpk doublecmd/compon
        </SearchPaths>
        <Parsing>
 diff -uNdr doublecmd.original/src/doublecmd.lpi doublecmd/src/doublecmd.lpi
---- doublecmd.original/src/doublecmd.lpi	2011-07-29 22:50:22.000000000 +0400
-+++ doublecmd/src/doublecmd.lpi	2011-07-30 01:47:01.000000000 +0400
+--- doublecmd.original/src/doublecmd.lpi	2011-08-24 11:03:59.227083419 +0400
++++ doublecmd/src/doublecmd.lpi	2011-08-24 11:23:01.373452751 +0400
 @@ -37,7 +37,7 @@
            <SearchPaths>
-             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir)"/>
+             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir);..\sdk"/>
              <Libraries Value="$(ProjPath)\..\libraries\$(TargetCPU)-$(TargetOS)"/>
 -            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames"/>
 +            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType)"/>
@@ -24,7 +24,7 @@ diff -uNdr doublecmd.original/src/doublecmd.lpi doublecmd/src/doublecmd.lpi
            </SearchPaths>
 @@ -86,7 +86,7 @@
            <SearchPaths>
-             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir)"/>
+             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir);..\sdk"/>
              <Libraries Value="$(ProjPath)\..\libraries\$(TargetCPU)-$(TargetOS)"/>
 -            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames"/>
 +            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType)"/>
@@ -33,7 +33,7 @@ diff -uNdr doublecmd.original/src/doublecmd.lpi doublecmd/src/doublecmd.lpi
            </SearchPaths>
 @@ -130,7 +130,7 @@
            <SearchPaths>
-             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir)"/>
+             <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir);..\sdk"/>
              <Libraries Value="$(ProjPath)\..\libraries\$(TargetCPU)-$(TargetOS)"/>
 -            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames"/>
 +            <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType)"/>
@@ -42,10 +42,10 @@ diff -uNdr doublecmd.original/src/doublecmd.lpi doublecmd/src/doublecmd.lpi
            </SearchPaths>
 @@ -950,7 +950,7 @@
      <SearchPaths>
-       <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir)"/>
+       <IncludeFiles Value="$(LazarusDir)\ide;$(ProjOutDir);..\sdk"/>
        <Libraries Value="$(ProjPath)\..\libraries\$(TargetCPU)-$(TargetOS)"/>
 -      <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames"/>
-+      <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType);../components/KASToolBar" />
++      <OtherUnitFiles Value="platform;platform\$(SrcOS);..\sdk;newdesign;newdesign\fileproperties;frames;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType)"/>
        <UnitOutputDirectory Value="..\units\$(TargetCPU)-$(TargetOS)-$(LCLWidgetType)"/>
        <SrcPath Value="$(LazarusDir)\lcl;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType);$(fpcsrcdir)\packages\fcl-base\src"/>
      </SearchPaths>
