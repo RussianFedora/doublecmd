@@ -3,7 +3,7 @@
 
 Name:           doublecmd
 Version:        %{realver}.svn%{svn}
-Release:        1%{?dist}.R
+Release:        2%{?dist}.R
 Summary:        Double Commander is a cross platform open source file manager with two panels side by side.
 
 License:        GPLv2
