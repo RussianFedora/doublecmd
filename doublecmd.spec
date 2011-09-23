@@ -1,17 +1,17 @@
-%define svn     3860
-%define realver 0.5.0
+%global svn     3926
+%global realver 0.5.0
 
 Name:           doublecmd
 Summary:        Twin-panel (commander-style) file manager
 Version:        %{realver}.svn%{svn}
 Release:        1%{?dist}.R
 URL:            http://doublecmd.sourceforge.net
-Source0:        %{name}-%{version}.tar.bz2
+Source0:        %{name}-%{version}.tar.xz
 License:        GPL
 Group:          Applications/File
 BuildRequires:	fpc >= 2.4.0 fpc-src glib2-devel gtk2-devel lazarus >= 0.9.29
 BuildRequires:  gdk-pixbuf-devel ncurses-devel dbus-devel bzip2-devel xorg-x11-proto-devel xorg-x11-xtrans-devel
-BuildRequires:  util-linux
+BuildRequires:  util-linux qt4pas
 
 %description
 Double Commander is a cross platform open source file manager with two panels side by side.
@@ -26,8 +26,18 @@ Conflicts:      %{name}-qt
 Double Commander is a cross platform open source file manager with two panels side by side.
 It is inspired by Total Commander and features some new ideas. GTK2
 
+%package        qt
+Summary:        Twin-panel (commander-style) file manager (QT)
+Provides:       %{name}
+Conflicts:      %{name}-gtk
+
+%description    qt
+Double Commander is a cross platform open source file manager with two panels side by side.
+It is inspired by Total Commander and features some new ideas. QT
+
 %package        doc
 Summary:        Double Commander's help files
+BuildArch:      noarch
 
 %description    doc
 Double Commander's help files
@@ -35,9 +45,13 @@ Double Commander's help files
 %prep
 %setup -q
 chmod +x install/linux/install-help.sh
+cp -r ../%{name} %{name}-qt
 
 %build
 ./build.sh all gtk2
+#pushd %{name}-qt
+#    ./build.sh all qt
+#popd
 
 %install
 install/linux/install.sh --install-prefix=%{buildroot}
@@ -60,8 +74,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/doc
 
 %changelog
+* Tue Aug 30 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.0-svn3926.1.R
+- Update to new revision
+
 * Tue Aug 30 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.0-svn3860.1.R
-- Apdate to new revision
+- Update to new revision
 
 * Mon Aug 08 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.5-svn3789.2.R
 - Added documentation package

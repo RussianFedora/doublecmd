@@ -2,7 +2,7 @@
 
 ORIGNAME=doublecmd
 VERSION=0.5.0
-SVN_REVISION=3860
+SVN_REVISION=3926
 NAME=${ORIGNAME}-${VERSION}.svn${SVN_REVISION}
 
 rm -rf ${ORIGNAME}
@@ -10,5 +10,5 @@ svn co -r $SVN_REVISION https://doublecmd.svn.sourceforge.net/svnroot/doublecmd/
 find ${ORIGNAME} -name ".svn" -exec rm -rf {} \; 2>/dev/null
 mv ${ORIGNAME} ${NAME}
 
-tar cfj ${NAME}.tar.bz2 ${NAME}
+tar cfJ ${NAME}.tar.xz ${NAME}
 rm -rf ${NAME}
