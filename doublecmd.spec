@@ -1,5 +1,5 @@
-%global svn     3926
-%global realver 0.5.0
+%global svn     3993
+%global realver 0.5.1
 
 Name:           doublecmd
 Summary:        Twin-panel (commander-style) file manager
@@ -45,7 +45,7 @@ Double Commander's help files
 %prep
 %setup -q
 chmod +x install/linux/install-help.sh
-cp -r ../%{name} %{name}-qt
+#cp -r ../%{name} %{name}-qt
 
 %build
 ./build.sh all gtk2
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/doc
 
 %changelog
+* Wed Oct 12 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.0-svn3993.1.R
+- Update to new revision
+
 * Tue Aug 30 2011 Vasiliy N. Glazov <vascom2@gmail.com> 0.5.0-svn3926.1.R
 - Update to new revision
 
