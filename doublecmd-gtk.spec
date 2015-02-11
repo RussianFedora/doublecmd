@@ -23,6 +23,7 @@ BuildRequires:  bzip2-devel
 BuildRequires:  xorg-x11-proto-devel
 BuildRequires:  xorg-x11-xtrans-devel
 BuildRequires:  util-linux
+BuildRequires:  pango-devel
 BuildRequires:  desktop-file-utils
 
 Provides:       %{realname} = %{version}
