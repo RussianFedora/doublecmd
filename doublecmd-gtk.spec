@@ -1,5 +1,6 @@
 %global debug_package %{nil}
 %global realname doublecmd
+%global help_version 0.6.0
 
 Name:           doublecmd-gtk
 Version:        0.6.5
@@ -9,7 +10,7 @@ Summary:        Cross platform open source file manager with two panels
 License:        GPLv2
 URL:            http://doublecmd.sourceforge.net
 Source0:        http://downloads.sourceforge.net/%{realname}/%{realname}-%{version}-src.tar.gz
-Source1:        http://downloads.sourceforge.net/%{realname}/%{realname}-help-%{version}-src.tar.gz
+Source1:        http://downloads.sourceforge.net/%{realname}/%{realname}-help-%{help_version}-src.tar.gz
 
 BuildRequires:  fpc >= 2.6.0
 BuildRequires:  fpc-src
