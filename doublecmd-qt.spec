@@ -2,7 +2,7 @@
 %global realname doublecmd
 
 Name:           doublecmd-qt
-Version:        0.6.0
+Version:        0.6.5
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels
 
@@ -52,6 +52,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{realname}.desktop
 %{_mandir}/man1/%{realname}.1.gz
 
 %changelog
+* Fri Oct 09 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.6.5-1
+- Update to 0.6.5
+
 * Tue Feb 10 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.6.0-1
 - Update to 0.6.0
 
