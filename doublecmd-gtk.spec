@@ -47,7 +47,7 @@ Double Commander's help files
 %setup -q -n %{realname}-%{version}
 chmod +x install/linux/install-help.sh
 tar -xvf %{SOURCE1}
-mv %{realname}-help-%{version}/* doc/
+mv %{realname}-help-%{help_version}/* doc/
 
 %build
 ./build.sh beta gtk2
