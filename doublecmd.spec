@@ -9,7 +9,7 @@ Summary:        Cross platform open source file manager with two panels (GTK2)
 License:        GPLv2
 URL:            http://doublecmd.sourceforge.net
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
-Source1:        http://downloads.sourceforge.net/%{name}/%{name}-help-%{help_version}-src.tar.gz
+Source1:        http://downloads.sourceforge.net/project/doublecmd/Double\ Commander\ Source/%{name}-help-%{help_version}-src.tar.gz
 Source2:        %{name}-qt.desktop
 
 BuildRequires:  fpc >= 2.6.0
