@@ -2,7 +2,7 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.6.6
+Version:        0.7.0
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels (GTK2)
 
@@ -124,6 +124,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/doc
 
 %changelog
+* Mon Mar 14 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.0-1
+- Update to 0.7.0
+
 * Thu Nov 19 2015 Vasiliy N. Glazov <vascom2@gmail.com> 0.6.6-1
 - Update to 0.6.6
 - One spec for GTK and Qt version
