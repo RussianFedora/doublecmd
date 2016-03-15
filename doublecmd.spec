@@ -94,8 +94,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %files gtk
-%doc doc/changelog.txt  doc/README.RUS.txt  doc/README.txt
-%license doc/COPYING.LGPL.txt  doc/COPYING.modifiedLGPL.txt  doc/COPYING.txt
+%doc doc/changelog.txt doc/README.txt
+%license doc/COPYING.LGPL.txt doc/COPYING.modifiedLGPL.txt doc/COPYING.txt
 %{_libdir}/%{name}/%{name}
 %{_bindir}/%{name}
 %_libdir/%name/%name.zdli
