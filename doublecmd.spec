@@ -20,7 +20,11 @@ BuildRequires:  lazarus >= 1.0.0
 BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(dbus-1)
+%if 0%{?fedora} >= 23
 BuildRequires:  pkgconfig(bzip2)
+%else
+BuildRequires:  bzip2-devel
+%endif
 BuildRequires:  pkgconfig(xproto)
 BuildRequires:  pkgconfig(xtrans)
 BuildRequires:  util-linux
