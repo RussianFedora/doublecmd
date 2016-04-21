@@ -2,7 +2,7 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.7.0
+Version:        0.7.1
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels (GTK2)
 
@@ -14,17 +14,17 @@ Source2:        %{name}-qt.desktop
 
 BuildRequires:  fpc >= 2.6.0
 BuildRequires:  fpc-src
-BuildRequires:  glib2-devel
-BuildRequires:  gtk2-devel
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-2.0)
 BuildRequires:  lazarus >= 1.0.0
-BuildRequires:  gdk-pixbuf2-devel
-BuildRequires:  ncurses-devel
-BuildRequires:  dbus-devel
-BuildRequires:  bzip2-devel
-BuildRequires:  xorg-x11-proto-devel
-BuildRequires:  xorg-x11-xtrans-devel
+BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:  pkgconfig(ncurses)
+BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  pkgconfig(bzip2)
+BuildRequires:  pkgconfig(xproto)
+BuildRequires:  pkgconfig(xtrans)
 BuildRequires:  util-linux
-BuildRequires:  pango-devel
+BuildRequires:  pkgconfig(pango)
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt4pas-devel
 
@@ -124,6 +124,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/doc
 
 %changelog
+* Thu Apr 21 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.1-1
+- Update to 0.7.1
+
 * Mon Mar 14 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.0-1
 - Update to 0.7.0
 
