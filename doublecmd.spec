@@ -2,7 +2,7 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.7.3
+Version:        0.7.5
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels (GTK2)
 
@@ -71,7 +71,7 @@ Summary:        Common files for Double Commander
 Common files for Double Commander GTK2 and Qt.
 
 %prep
-%setup -q
+%autosetup
 chmod +x install/linux/install-help.sh
 tar -xvf %{SOURCE1}
 mv %{name}-help-%{help_version}/* doc/
@@ -128,6 +128,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/doc
 
 %changelog
+* Fri Sep 16 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.5-1
+- Update to 0.7.5
+
 * Fri Jul 15 2016 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.3-1
 - Update to 0.7.3
 
