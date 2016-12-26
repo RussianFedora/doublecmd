@@ -32,6 +32,8 @@ BuildRequires:  pkgconfig(pango)
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt4pas-devel
 
+Requires:       hicolor-icon-theme
+
 %description
 Double Commander GTK2 is a cross platform open source file manager with two
 panels side by side.
@@ -123,6 +125,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}
 %{_mandir}/man1/%{name}.1.gz
 %{_datadir}/pixmaps/%{name}.*
+%{_datadir}/icons/hicolor/scalable/apps/doublecmd.svg
 
 %files doc
 %{_datadir}/%{name}/doc
