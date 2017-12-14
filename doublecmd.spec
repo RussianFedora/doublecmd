@@ -2,9 +2,9 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.7.8
+Version:        0.8.0
 Release:        1%{?dist}
-Summary:        Cross platform open source file manager with two panels (GTK2)
+Summary:        Cross platform open source file manager with two panels
 
 License:        GPLv2
 URL:            http://doublecmd.sourceforge.net
@@ -79,11 +79,11 @@ tar -xvf %{SOURCE1}
 mv %{name}-help-%{help_version}/* doc/
 
 %build
-./build.sh beta qt
+lcl=qt ./build.sh beta
 mv ./%name ./%name-qt
 mv ./%name.zdli ./%name-qt.zdli
 ./clean.sh
-./build.sh beta gtk2
+lcl=gtk2 ./build.sh beta
 
 %install
 install/linux/install.sh --install-prefix=%{buildroot}
@@ -131,6 +131,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/doc
 
 %changelog
+* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
+- Update to 0.8.0
+
 * Mon Mar 06 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.7.8-1
 - Update to 0.7.8
 
