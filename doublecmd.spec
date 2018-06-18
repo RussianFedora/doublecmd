@@ -2,7 +2,7 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.8.0
+Version:        0.8.3
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels
 
@@ -30,9 +30,12 @@ BuildRequires:  pkgconfig(xtrans)
 BuildRequires:  util-linux
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  desktop-file-utils
-BuildRequires:  qt4pas-devel
+BuildRequires:  qt5pas-devel
+BuildRequires:  qt5-qtbase-devel
 
 Requires:       hicolor-icon-theme
+
+ExclusiveArch:  %{fpc_arches}
 
 %description
 Double Commander GTK2 is a cross platform open source file manager with two
@@ -79,7 +82,7 @@ tar -xvf %{SOURCE1}
 mv %{name}-help-%{help_version}/* doc/
 
 %build
-lcl=qt ./build.sh beta
+lcl=qt5 ./build.sh beta
 mv ./%name ./%name-qt
 mv ./%name.zdli ./%name-qt.zdli
 ./clean.sh
@@ -126,11 +129,18 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_mandir}/man1/%{name}.1.gz
 %{_datadir}/pixmaps/%{name}.*
 %{_datadir}/icons/hicolor/scalable/apps/doublecmd.svg
+%{_datadir}/polkit-1/actions/org.doublecmd.root.policy
 
 %files doc
 %{_datadir}/%{name}/doc
 
 %changelog
+* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
+- Update to 0.8.3
+
+* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
+- Update to 0.8.2
+
 * Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
 - Update to 0.8.0
 
