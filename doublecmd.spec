@@ -2,7 +2,7 @@
 %global help_version 0.6.0
 
 Name:           doublecmd
-Version:        0.8.3
+Version:        0.8.4
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels
 
@@ -135,10 +135,13 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/doc
 
 %changelog
-* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
+* Wed Aug 29 2018 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.4-1
+- Update to 0.8.4
+
+* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.3-1
 - Update to 0.8.3
 
-* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
+* Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.2-1
 - Update to 0.8.2
 
 * Thu Dec 14 2017 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1
