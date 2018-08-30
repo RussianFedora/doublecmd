@@ -1,3 +1,5 @@
+%undefine _ld_as_needed
+
 %global debug_package %{nil}
 %global help_version 0.6.0
 
@@ -11,6 +13,7 @@ URL:            http://doublecmd.sourceforge.net
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 Source1:        http://downloads.sourceforge.net/project/doublecmd/Double%20Commander%20Source/%{name}-help-%{help_version}-src.tar.gz
 Source2:        %{name}-qt.desktop
+Patch0:         doublecmd-qt5.patch
 
 BuildRequires:  fpc >= 2.6.0
 BuildRequires:  fpc-src
@@ -76,7 +79,7 @@ Summary:        Common files for Double Commander
 Common files for Double Commander GTK2 and Qt.
 
 %prep
-%autosetup
+%autosetup -p0
 chmod +x install/linux/install-help.sh
 tar -xvf %{SOURCE1}
 mv %{name}-help-%{help_version}/* doc/
