@@ -1,7 +1,4 @@
-%undefine _ld_as_needed
-
 %global debug_package %{nil}
-%global help_version 0.6.0
 
 Name:           doublecmd
 Version:        0.8.4
@@ -11,8 +8,7 @@ Summary:        Cross platform open source file manager with two panels
 License:        GPLv2
 URL:            http://doublecmd.sourceforge.net
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
-Source1:        http://downloads.sourceforge.net/project/doublecmd/Double%20Commander%20Source/%{name}-help-%{help_version}-src.tar.gz
-Source2:        %{name}-qt.desktop
+Source1:        %{name}-qt.desktop
 Patch0:         doublecmd-qt5.patch
 
 BuildRequires:  fpc >= 2.6.0
@@ -23,11 +19,7 @@ BuildRequires:  lazarus >= 1.0.0
 BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(dbus-1)
-%if 0%{?fedora} >= 23
 BuildRequires:  pkgconfig(bzip2)
-%else
-BuildRequires:  bzip2-devel
-%endif
 BuildRequires:  pkgconfig(xproto)
 BuildRequires:  pkgconfig(xtrans)
 BuildRequires:  util-linux
@@ -44,13 +36,6 @@ ExclusiveArch:  %{fpc_arches}
 Double Commander GTK2 is a cross platform open source file manager with two
 panels side by side.
 It is inspired by Total Commander and features some new ideas.
-
-%package        doc
-Summary:        Double Commander's help files
-BuildArch:      noarch
-
-%description    doc
-Double Commander's help files
 
 %package        gtk
 Summary:        Twin-panel (commander-style) file manager (GTK)
@@ -81,8 +66,7 @@ Common files for Double Commander GTK2 and Qt.
 %prep
 %autosetup -p0
 chmod +x install/linux/install-help.sh
-tar -xvf %{SOURCE1}
-mv %{name}-help-%{help_version}/* doc/
+
 
 %build
 lcl=qt5 ./build.sh beta
@@ -97,17 +81,13 @@ install -pm 0755 ./%{name}-qt %{buildroot}%{_libdir}/%{name}/%{name}-qt
 ln -s ../%{_lib}/%{name}/%{name}-qt %{buildroot}%{_bindir}/%{name}-qt
 install -pm 0644 ./%{name}-qt.zdli %{buildroot}%{_libdir}/%{name}/%{name}-qt.zdli
 
-install/linux/install-help.sh --install-prefix=%{buildroot}
-
-desktop-file-install %{SOURCE2}
+desktop-file-install %{SOURCE1}
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %files gtk
-%doc doc/changelog.txt doc/README.txt
-%license doc/COPYING.LGPL.txt doc/COPYING.modifiedLGPL.txt doc/COPYING.txt
 %{_libdir}/%{name}/%{name}
 %{_bindir}/%{name}
 %_libdir/%name/%name.zdli
@@ -121,6 +101,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}-qt.desktop
 
 %files common
+%doc doc/changelog.txt doc/README.txt
+%license doc/COPYING.LGPL.txt doc/COPYING.modifiedLGPL.txt doc/COPYING.txt
 %exclude %{_libdir}/%{name}/%{name}
 %exclude %{_libdir}/%{name}/%{name}-qt
 %exclude %{_libdir}/%{name}/%{name}.zdli
@@ -133,9 +115,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.*
 %{_datadir}/icons/hicolor/scalable/apps/doublecmd.svg
 %{_datadir}/polkit-1/actions/org.doublecmd.root.policy
-
-%files doc
-%{_datadir}/%{name}/doc
 
 %changelog
 * Wed Aug 29 2018 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.4-1
