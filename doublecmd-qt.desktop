@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Double Commander QT4
-Comment=Double Commander QT4 is a cross platform open source file manager with two panels side by side.
+Name=Double Commander QT5
+Comment=Double Commander QT5 is a cross platform open source file manager with two panels side by side.
 Terminal=false
 Icon=doublecmd
 Exec=doublecmd-qt

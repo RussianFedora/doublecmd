@@ -1,15 +1,14 @@
 %global debug_package %{nil}
 
 Name:           doublecmd
-Version:        0.8.4
+Version:        0.9.6
 Release:        1%{?dist}
 Summary:        Cross platform open source file manager with two panels
 
 License:        GPLv2
 URL:            http://doublecmd.sourceforge.net
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
+Source0:        %{url}/%{name}/%{name}-%{version}-src.tar.gz
 Source1:        %{name}-qt.desktop
-Patch0:         doublecmd-qt5.patch
 
 BuildRequires:  fpc >= 2.6.0
 BuildRequires:  fpc-src
@@ -30,7 +29,7 @@ BuildRequires:  qt5-qtbase-devel
 
 Requires:       hicolor-icon-theme
 
-ExclusiveArch:  %{fpc_arches}
+ExclusiveArch:  %{ix86} x86_64
 
 %description
 Double Commander GTK2 is a cross platform open source file manager with two
@@ -80,7 +79,6 @@ install/linux/install.sh --install-prefix=%{buildroot}
 install -pm 0755 ./%{name}-qt %{buildroot}%{_libdir}/%{name}/%{name}-qt
 ln -s ../%{_lib}/%{name}/%{name}-qt %{buildroot}%{_bindir}/%{name}-qt
 install -pm 0644 ./%{name}-qt.zdli %{buildroot}%{_libdir}/%{name}/%{name}-qt.zdli
-
 desktop-file-install %{SOURCE1}
 
 %check
@@ -117,6 +115,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/polkit-1/actions/org.doublecmd.root.policy
 
 %changelog
+* Fri Oct 11 2019 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.6-1
+- Update to 0.9.6
+
+* Tue Aug 13 2019 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.5-1
+- Update to 0.9.5
+
 * Wed Aug 29 2018 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.4-1
 - Update to 0.8.4
 
