@@ -2,12 +2,12 @@
 
 Name:           doublecmd
 Version:        0.9.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Cross platform open source file manager with two panels
 
-License:        GPLv2
+License:        GPLv2+ and LGPLv2+ and Expat and MPLv1.1 and MPLv2.0 and ASL 2.0 and BSD and Expat and zlib
 URL:            http://doublecmd.sourceforge.net
-Source0:        %{url}/%{name}/%{name}-%{version}-src.tar.gz
+Source0:        http://sourceforge.net/projects/%{name}/files/Double%20Commander%20Source/%{name}-%{version}-src.tar.gz
 Source1:        %{name}-qt.desktop
 
 BuildRequires:  fpc >= 2.6.0
@@ -28,6 +28,7 @@ BuildRequires:  qt5pas-devel
 BuildRequires:  qt5-qtbase-devel
 
 Requires:       hicolor-icon-theme
+Requires:       polkit%{?_isa}
 
 ExclusiveArch:  %{ix86} x86_64
 
@@ -88,7 +89,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %files gtk
 %{_libdir}/%{name}/%{name}
 %{_bindir}/%{name}
-%_libdir/%name/%name.zdli
+%{_libdir}/%{name}/%{name}.zdli
 %{_datadir}/applications/%{name}.desktop
 
 
@@ -109,12 +110,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %exclude %{_bindir}/%{name}-qt
 %{_libdir}/%{name}
 %{_datadir}/%{name}
-%{_mandir}/man1/%{name}.1.gz
+%{_mandir}/man1/%{name}.1.*
 %{_datadir}/pixmaps/%{name}.*
 %{_datadir}/icons/hicolor/scalable/apps/doublecmd.svg
 %{_datadir}/polkit-1/actions/org.doublecmd.root.policy
 
 %changelog
+* Tue Oct 15 2019 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.6-2
+- Corrected license and spec cleanup
+
 * Fri Oct 11 2019 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.6-1
 - Update to 0.9.6
 
