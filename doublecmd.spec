@@ -7,7 +7,7 @@ Summary:        Cross platform open source file manager with two panels
 
 License:        GPLv2+ and LGPLv2+ and Expat and MPLv1.1 and MPLv2.0 and ASL 2.0 and BSD and Expat and zlib
 URL:            http://doublecmd.sourceforge.net
-Source0:        http://sourceforge.net/projects/%{name}/files/Double%20Commander%20Source/%{name}-%{version}-src.tar.gz
+Source0:        https://sourceforge.net/projects/%{name}/files/Double%20Commander%20Source/%{name}-%{version}-src.tar.gz
 Source1:        %{name}-qt.desktop
 
 BuildRequires:  fpc >= 2.6.0
@@ -26,9 +26,6 @@ BuildRequires:  pkgconfig(pango)
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5pas-devel
 BuildRequires:  qt5-qtbase-devel
-
-Requires:       hicolor-icon-theme
-Requires:       polkit%{?_isa}
 
 ExclusiveArch:  %{ix86} x86_64
 
@@ -59,6 +56,9 @@ It is inspired by Total Commander and features some new ideas.
 
 %package        common
 Summary:        Common files for Double Commander
+
+Requires:       hicolor-icon-theme
+Requires:       polkit%{?_isa}
 
 %description    common
 Common files for Double Commander GTK2 and Qt.
